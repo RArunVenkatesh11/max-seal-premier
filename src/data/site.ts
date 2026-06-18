@@ -254,7 +254,7 @@ export const HOME: {
       body: "Application help, drawings, and quotes from a domestic team that answers the phone.",
     },
     {
-      number: "seal",
+      number: "04",
       title: "A stronger alternative",
       body: "Built to outlast generic low-cost imports without overspecifying what you do not need.",
     },
