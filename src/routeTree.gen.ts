@@ -9,38 +9,230 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as ResourcesRouteImport } from './routes/resources'
+import { Route as RequestAQuoteRouteImport } from './routes/request-a-quote'
+import { Route as ProductsRouteImport } from './routes/products'
+import { Route as IndustriesRouteImport } from './routes/industries'
+import { Route as EngineeringAdvantageRouteImport } from './routes/engineering-advantage'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ProductsSelectorRouteImport } from './routes/products.selector'
+import { Route as ProductsCompareRouteImport } from './routes/products.compare'
+import { Route as ProductsSlugRouteImport } from './routes/products.$slug'
+import { Route as IndustriesSlugRouteImport } from './routes/industries.$slug'
 
+const ResourcesRoute = ResourcesRouteImport.update({
+  id: '/resources',
+  path: '/resources',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RequestAQuoteRoute = RequestAQuoteRouteImport.update({
+  id: '/request-a-quote',
+  path: '/request-a-quote',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductsRoute = ProductsRouteImport.update({
+  id: '/products',
+  path: '/products',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndustriesRoute = IndustriesRouteImport.update({
+  id: '/industries',
+  path: '/industries',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EngineeringAdvantageRoute = EngineeringAdvantageRouteImport.update({
+  id: '/engineering-advantage',
+  path: '/engineering-advantage',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProductsSelectorRoute = ProductsSelectorRouteImport.update({
+  id: '/selector',
+  path: '/selector',
+  getParentRoute: () => ProductsRoute,
+} as any)
+const ProductsCompareRoute = ProductsCompareRouteImport.update({
+  id: '/compare',
+  path: '/compare',
+  getParentRoute: () => ProductsRoute,
+} as any)
+const ProductsSlugRoute = ProductsSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => ProductsRoute,
+} as any)
+const IndustriesSlugRoute = IndustriesSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => IndustriesRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/engineering-advantage': typeof EngineeringAdvantageRoute
+  '/industries': typeof IndustriesRouteWithChildren
+  '/products': typeof ProductsRouteWithChildren
+  '/request-a-quote': typeof RequestAQuoteRoute
+  '/resources': typeof ResourcesRoute
+  '/industries/$slug': typeof IndustriesSlugRoute
+  '/products/$slug': typeof ProductsSlugRoute
+  '/products/compare': typeof ProductsCompareRoute
+  '/products/selector': typeof ProductsSelectorRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/engineering-advantage': typeof EngineeringAdvantageRoute
+  '/industries': typeof IndustriesRouteWithChildren
+  '/products': typeof ProductsRouteWithChildren
+  '/request-a-quote': typeof RequestAQuoteRoute
+  '/resources': typeof ResourcesRoute
+  '/industries/$slug': typeof IndustriesSlugRoute
+  '/products/$slug': typeof ProductsSlugRoute
+  '/products/compare': typeof ProductsCompareRoute
+  '/products/selector': typeof ProductsSelectorRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/engineering-advantage': typeof EngineeringAdvantageRoute
+  '/industries': typeof IndustriesRouteWithChildren
+  '/products': typeof ProductsRouteWithChildren
+  '/request-a-quote': typeof RequestAQuoteRoute
+  '/resources': typeof ResourcesRoute
+  '/industries/$slug': typeof IndustriesSlugRoute
+  '/products/$slug': typeof ProductsSlugRoute
+  '/products/compare': typeof ProductsCompareRoute
+  '/products/selector': typeof ProductsSelectorRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/engineering-advantage'
+    | '/industries'
+    | '/products'
+    | '/request-a-quote'
+    | '/resources'
+    | '/industries/$slug'
+    | '/products/$slug'
+    | '/products/compare'
+    | '/products/selector'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/engineering-advantage'
+    | '/industries'
+    | '/products'
+    | '/request-a-quote'
+    | '/resources'
+    | '/industries/$slug'
+    | '/products/$slug'
+    | '/products/compare'
+    | '/products/selector'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/engineering-advantage'
+    | '/industries'
+    | '/products'
+    | '/request-a-quote'
+    | '/resources'
+    | '/industries/$slug'
+    | '/products/$slug'
+    | '/products/compare'
+    | '/products/selector'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  ContactRoute: typeof ContactRoute
+  EngineeringAdvantageRoute: typeof EngineeringAdvantageRoute
+  IndustriesRoute: typeof IndustriesRouteWithChildren
+  ProductsRoute: typeof ProductsRouteWithChildren
+  RequestAQuoteRoute: typeof RequestAQuoteRoute
+  ResourcesRoute: typeof ResourcesRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/resources': {
+      id: '/resources'
+      path: '/resources'
+      fullPath: '/resources'
+      preLoaderRoute: typeof ResourcesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/request-a-quote': {
+      id: '/request-a-quote'
+      path: '/request-a-quote'
+      fullPath: '/request-a-quote'
+      preLoaderRoute: typeof RequestAQuoteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/products': {
+      id: '/products'
+      path: '/products'
+      fullPath: '/products'
+      preLoaderRoute: typeof ProductsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/industries': {
+      id: '/industries'
+      path: '/industries'
+      fullPath: '/industries'
+      preLoaderRoute: typeof IndustriesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/engineering-advantage': {
+      id: '/engineering-advantage'
+      path: '/engineering-advantage'
+      fullPath: '/engineering-advantage'
+      preLoaderRoute: typeof EngineeringAdvantageRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,22 +240,75 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/products/selector': {
+      id: '/products/selector'
+      path: '/selector'
+      fullPath: '/products/selector'
+      preLoaderRoute: typeof ProductsSelectorRouteImport
+      parentRoute: typeof ProductsRoute
+    }
+    '/products/compare': {
+      id: '/products/compare'
+      path: '/compare'
+      fullPath: '/products/compare'
+      preLoaderRoute: typeof ProductsCompareRouteImport
+      parentRoute: typeof ProductsRoute
+    }
+    '/products/$slug': {
+      id: '/products/$slug'
+      path: '/$slug'
+      fullPath: '/products/$slug'
+      preLoaderRoute: typeof ProductsSlugRouteImport
+      parentRoute: typeof ProductsRoute
+    }
+    '/industries/$slug': {
+      id: '/industries/$slug'
+      path: '/$slug'
+      fullPath: '/industries/$slug'
+      preLoaderRoute: typeof IndustriesSlugRouteImport
+      parentRoute: typeof IndustriesRoute
+    }
   }
 }
 
+interface IndustriesRouteChildren {
+  IndustriesSlugRoute: typeof IndustriesSlugRoute
+}
+
+const IndustriesRouteChildren: IndustriesRouteChildren = {
+  IndustriesSlugRoute: IndustriesSlugRoute,
+}
+
+const IndustriesRouteWithChildren = IndustriesRoute._addFileChildren(
+  IndustriesRouteChildren,
+)
+
+interface ProductsRouteChildren {
+  ProductsSlugRoute: typeof ProductsSlugRoute
+  ProductsCompareRoute: typeof ProductsCompareRoute
+  ProductsSelectorRoute: typeof ProductsSelectorRoute
+}
+
+const ProductsRouteChildren: ProductsRouteChildren = {
+  ProductsSlugRoute: ProductsSlugRoute,
+  ProductsCompareRoute: ProductsCompareRoute,
+  ProductsSelectorRoute: ProductsSelectorRoute,
+}
+
+const ProductsRouteWithChildren = ProductsRoute._addFileChildren(
+  ProductsRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  ContactRoute: ContactRoute,
+  EngineeringAdvantageRoute: EngineeringAdvantageRoute,
+  IndustriesRoute: IndustriesRouteWithChildren,
+  ProductsRoute: ProductsRouteWithChildren,
+  RequestAQuoteRoute: RequestAQuoteRoute,
+  ResourcesRoute: ResourcesRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
