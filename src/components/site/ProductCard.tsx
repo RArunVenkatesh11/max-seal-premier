@@ -3,6 +3,7 @@ import { ArrowUpRight, ChevronDown, Check } from "lucide-react";
 import { useState } from "react";
 import type { ProductFamily } from "@/data/site";
 import { cn } from "@/lib/utils";
+import { CardMedia, productImage } from "@/components/site/Media";
 
 export function ProductCard({
   product,
