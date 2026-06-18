@@ -3,7 +3,7 @@ import { PageHero, Section, SectionHeading } from "@/components/site/Section";
 import { CtaBand } from "@/components/site/CtaBand";
 import { HOME } from "@/data/site";
 
-export const Route = createFileRoute("/about")({
+export const Route = createFileRoute("/about/")({
   head: () => ({
     meta: [
       { title: "About Max-Seal | US-Based Butterfly Valve Manufacturer" },
