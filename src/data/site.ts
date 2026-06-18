@@ -1234,7 +1234,7 @@ export const SELECTOR: {
     { value: "low-cost", label: "Best value for general service" },
   ],
   valveTypes: [
-    { value: "open", label: "Open to recommendation" },
+    { value: "any", label: "Open to recommendation" },
     { value: "resilient-seated", label: "Resilient seated" },
     { value: "high-performance", label: "High performance" },
     { value: "triple-offset", label: "Triple offset" },
