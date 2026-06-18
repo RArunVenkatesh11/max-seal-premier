@@ -1,10 +1,10 @@
 import { Link } from "@tanstack/react-router";
-import { SITE, PRODUCT_FAMILIES, INDUSTRIES } from "@/data/site";
+import { SITE, PRODUCT_FAMILIES, INDUSTRIES, RESOURCE_CATEGORIES } from "@/data/site";
 
 export function Footer() {
   return (
     <footer className="cinematic mt-24 border-t border-line">
-      <div className="container-page grid gap-12 py-16 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
+      <div className="container-page grid gap-12 py-16 lg:grid-cols-[1.6fr_1fr_1fr_1fr_1fr_1fr]">
         <div>
           <div className="flex items-center gap-2.5">
             <span className="grid h-8 w-8 place-items-center rounded-sm bg-white text-ink">
@@ -15,7 +15,7 @@ export function Footer() {
             </span>
           </div>
           <p className="mt-5 max-w-sm text-sm text-white/60">
-            Engineered butterfly valves. One source for resilient seated, high performance, triple offset, and PFA lined solutions.
+            Engineered butterfly valves. One source for resilient seated, high performance, triple offset, cryogenic, and AWWA solutions.
           </p>
           <div className="mt-6 space-y-1 font-mono text-xs text-white/50">
             <div>{SITE.address}</div>
@@ -26,18 +26,45 @@ export function Footer() {
 
         <FooterCol
           title="Products"
-          items={PRODUCT_FAMILIES.map((p) => ({ label: p.shortName, href: `/products/${p.slug}` }))}
+          items={[
+            { label: "All Products", href: "/products" },
+            { label: "Product Selector", href: "/products/selector" },
+            { label: "Compare Families", href: "/products/compare" },
+            { label: "Valve Families", href: "/products/valve-families" },
+            { label: "Automation & Accessories", href: "/products/automation-accessories" },
+            { label: "Product Downloads", href: "/products/downloads" },
+          ]}
+        />
+        <FooterCol
+          title="Featured Series"
+          items={PRODUCT_FAMILIES.slice(0, 7).map((p) => ({
+            label: p.shortName,
+            href: `/products/${p.slug}`,
+          }))}
         />
         <FooterCol
           title="Industries"
-          items={INDUSTRIES.slice(0, 6).map((i) => ({ label: i.name, href: `/industries/${i.slug}` }))}
+          items={INDUSTRIES.map((i) => ({ label: i.name, href: `/industries/${i.slug}` }))}
+        />
+        <FooterCol
+          title="Resources"
+          items={[
+            { label: "All Resources", href: "/resources" },
+            ...RESOURCE_CATEGORIES.map((c) => ({
+              label: c.label,
+              href: `/resources/${c.slug}`,
+            })),
+          ]}
         />
         <FooterCol
           title="Company"
           items={[
-            { label: "Engineering Advantage", href: "/engineering-advantage" },
-            { label: "Resources", href: "/resources" },
             { label: "About", href: "/about" },
+            { label: "Team", href: "/about/team" },
+            { label: "End Users", href: "/about/end-users" },
+            { label: "Global Partners", href: "/about/global-partners" },
+            { label: "Engineering Advantage", href: "/engineering-advantage" },
+            { label: "Ask The Experts", href: "/ask-the-experts" },
             { label: "Contact", href: "/contact" },
             { label: "Request a Quote", href: "/request-a-quote" },
           ]}
