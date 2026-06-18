@@ -33,6 +33,8 @@ function IndustriesIndex() {
           </>
         }
         lede="From municipal water plants to LNG terminals, Max-Seal valves serve operators who measure success in years between failures, not transactions."
+        image={HOME_IMAGES.oilGas}
+        imageAlt="Industrial pipeline facility at dusk"
       />
 
       <section className="bg-background py-14 md:py-20">
