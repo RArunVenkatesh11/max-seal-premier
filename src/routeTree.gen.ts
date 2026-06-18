@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as ResourcesRouteImport } from './routes/resources'
 import { Route as RequestAQuoteRouteImport } from './routes/request-a-quote'
 import { Route as ProductsRouteImport } from './routes/products'
 import { Route as IndustriesRouteImport } from './routes/industries'
@@ -25,6 +26,11 @@ import { Route as ProductsCompareRouteImport } from './routes/products.compare'
 import { Route as ProductsSlugRouteImport } from './routes/products.$slug'
 import { Route as IndustriesSlugRouteImport } from './routes/industries.$slug'
 
+const ResourcesRoute = ResourcesRouteImport.update({
+  id: '/resources',
+  path: '/resources',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const RequestAQuoteRoute = RequestAQuoteRouteImport.update({
   id: '/request-a-quote',
   path: '/request-a-quote',
@@ -61,9 +67,9 @@ const IndexRoute = IndexRouteImport.update({
   getParentRoute: () => rootRouteImport,
 } as any)
 const ResourcesIndexRoute = ResourcesIndexRouteImport.update({
-  id: '/resources/',
-  path: '/resources/',
-  getParentRoute: () => rootRouteImport,
+  id: '/',
+  path: '/',
+  getParentRoute: () => ResourcesRoute,
 } as any)
 const ProductsIndexRoute = ProductsIndexRouteImport.update({
   id: '/',
@@ -109,6 +115,7 @@ export interface FileRoutesByFullPath {
   '/industries': typeof IndustriesRouteWithChildren
   '/products': typeof ProductsRouteWithChildren
   '/request-a-quote': typeof RequestAQuoteRoute
+  '/resources': typeof ResourcesRouteWithChildren
   '/industries/$slug': typeof IndustriesSlugRoute
   '/products/$slug': typeof ProductsSlugRoute
   '/products/compare': typeof ProductsCompareRoute
@@ -141,6 +148,7 @@ export interface FileRoutesById {
   '/industries': typeof IndustriesRouteWithChildren
   '/products': typeof ProductsRouteWithChildren
   '/request-a-quote': typeof RequestAQuoteRoute
+  '/resources': typeof ResourcesRouteWithChildren
   '/industries/$slug': typeof IndustriesSlugRoute
   '/products/$slug': typeof ProductsSlugRoute
   '/products/compare': typeof ProductsCompareRoute
@@ -160,6 +168,7 @@ export interface FileRouteTypes {
     | '/industries'
     | '/products'
     | '/request-a-quote'
+    | '/resources'
     | '/industries/$slug'
     | '/products/$slug'
     | '/products/compare'
@@ -191,6 +200,7 @@ export interface FileRouteTypes {
     | '/industries'
     | '/products'
     | '/request-a-quote'
+    | '/resources'
     | '/industries/$slug'
     | '/products/$slug'
     | '/products/compare'
@@ -209,11 +219,18 @@ export interface RootRouteChildren {
   IndustriesRoute: typeof IndustriesRouteWithChildren
   ProductsRoute: typeof ProductsRouteWithChildren
   RequestAQuoteRoute: typeof RequestAQuoteRoute
-  ResourcesIndexRoute: typeof ResourcesIndexRoute
+  ResourcesRoute: typeof ResourcesRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/resources': {
+      id: '/resources'
+      path: '/resources'
+      fullPath: '/resources'
+      preLoaderRoute: typeof ResourcesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/request-a-quote': {
       id: '/request-a-quote'
       path: '/request-a-quote'
@@ -265,10 +282,10 @@ declare module '@tanstack/react-router' {
     }
     '/resources/': {
       id: '/resources/'
-      path: '/resources'
+      path: '/'
       fullPath: '/resources/'
       preLoaderRoute: typeof ResourcesIndexRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof ResourcesRoute
     }
     '/products/': {
       id: '/products/'
@@ -364,6 +381,18 @@ const ProductsRouteWithChildren = ProductsRoute._addFileChildren(
   ProductsRouteChildren,
 )
 
+interface ResourcesRouteChildren {
+  ResourcesIndexRoute: typeof ResourcesIndexRoute
+}
+
+const ResourcesRouteChildren: ResourcesRouteChildren = {
+  ResourcesIndexRoute: ResourcesIndexRoute,
+}
+
+const ResourcesRouteWithChildren = ResourcesRoute._addFileChildren(
+  ResourcesRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRouteWithChildren,
@@ -372,7 +401,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndustriesRoute: IndustriesRouteWithChildren,
   ProductsRoute: ProductsRouteWithChildren,
   RequestAQuoteRoute: RequestAQuoteRoute,
-  ResourcesIndexRoute: ResourcesIndexRoute,
+  ResourcesRoute: ResourcesRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
