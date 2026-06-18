@@ -15,14 +15,18 @@ import { Route as ProductsRouteImport } from './routes/products'
 import { Route as IndustriesRouteImport } from './routes/industries'
 import { Route as EngineeringAdvantageRouteImport } from './routes/engineering-advantage'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as AskTheExpertsRouteImport } from './routes/ask-the-experts'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ResourcesIndexRouteImport } from './routes/resources.index'
 import { Route as ProductsIndexRouteImport } from './routes/products.index'
 import { Route as IndustriesIndexRouteImport } from './routes/industries.index'
 import { Route as AboutIndexRouteImport } from './routes/about.index'
+import { Route as ProductsValveFamiliesRouteImport } from './routes/products.valve-families'
 import { Route as ProductsSelectorRouteImport } from './routes/products.selector'
+import { Route as ProductsDownloadsRouteImport } from './routes/products.downloads'
 import { Route as ProductsCompareRouteImport } from './routes/products.compare'
+import { Route as ProductsAutomationAccessoriesRouteImport } from './routes/products.automation-accessories'
 import { Route as ProductsSlugRouteImport } from './routes/products.$slug'
 import { Route as IndustriesSlugRouteImport } from './routes/industries.$slug'
 
@@ -56,6 +60,11 @@ const ContactRoute = ContactRouteImport.update({
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AskTheExpertsRoute = AskTheExpertsRouteImport.update({
+  id: '/ask-the-experts',
+  path: '/ask-the-experts',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
@@ -86,9 +95,19 @@ const AboutIndexRoute = AboutIndexRouteImport.update({
   path: '/',
   getParentRoute: () => AboutRoute,
 } as any)
+const ProductsValveFamiliesRoute = ProductsValveFamiliesRouteImport.update({
+  id: '/valve-families',
+  path: '/valve-families',
+  getParentRoute: () => ProductsRoute,
+} as any)
 const ProductsSelectorRoute = ProductsSelectorRouteImport.update({
   id: '/selector',
   path: '/selector',
+  getParentRoute: () => ProductsRoute,
+} as any)
+const ProductsDownloadsRoute = ProductsDownloadsRouteImport.update({
+  id: '/downloads',
+  path: '/downloads',
   getParentRoute: () => ProductsRoute,
 } as any)
 const ProductsCompareRoute = ProductsCompareRouteImport.update({
@@ -96,6 +115,12 @@ const ProductsCompareRoute = ProductsCompareRouteImport.update({
   path: '/compare',
   getParentRoute: () => ProductsRoute,
 } as any)
+const ProductsAutomationAccessoriesRoute =
+  ProductsAutomationAccessoriesRouteImport.update({
+    id: '/automation-accessories',
+    path: '/automation-accessories',
+    getParentRoute: () => ProductsRoute,
+  } as any)
 const ProductsSlugRoute = ProductsSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
@@ -110,6 +135,7 @@ const IndustriesSlugRoute = IndustriesSlugRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRouteWithChildren
+  '/ask-the-experts': typeof AskTheExpertsRoute
   '/contact': typeof ContactRoute
   '/engineering-advantage': typeof EngineeringAdvantageRoute
   '/industries': typeof IndustriesRouteWithChildren
@@ -118,8 +144,11 @@ export interface FileRoutesByFullPath {
   '/resources': typeof ResourcesRouteWithChildren
   '/industries/$slug': typeof IndustriesSlugRoute
   '/products/$slug': typeof ProductsSlugRoute
+  '/products/automation-accessories': typeof ProductsAutomationAccessoriesRoute
   '/products/compare': typeof ProductsCompareRoute
+  '/products/downloads': typeof ProductsDownloadsRoute
   '/products/selector': typeof ProductsSelectorRoute
+  '/products/valve-families': typeof ProductsValveFamiliesRoute
   '/about/': typeof AboutIndexRoute
   '/industries/': typeof IndustriesIndexRoute
   '/products/': typeof ProductsIndexRoute
@@ -127,13 +156,17 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/ask-the-experts': typeof AskTheExpertsRoute
   '/contact': typeof ContactRoute
   '/engineering-advantage': typeof EngineeringAdvantageRoute
   '/request-a-quote': typeof RequestAQuoteRoute
   '/industries/$slug': typeof IndustriesSlugRoute
   '/products/$slug': typeof ProductsSlugRoute
+  '/products/automation-accessories': typeof ProductsAutomationAccessoriesRoute
   '/products/compare': typeof ProductsCompareRoute
+  '/products/downloads': typeof ProductsDownloadsRoute
   '/products/selector': typeof ProductsSelectorRoute
+  '/products/valve-families': typeof ProductsValveFamiliesRoute
   '/about': typeof AboutIndexRoute
   '/industries': typeof IndustriesIndexRoute
   '/products': typeof ProductsIndexRoute
@@ -143,6 +176,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRouteWithChildren
+  '/ask-the-experts': typeof AskTheExpertsRoute
   '/contact': typeof ContactRoute
   '/engineering-advantage': typeof EngineeringAdvantageRoute
   '/industries': typeof IndustriesRouteWithChildren
@@ -151,8 +185,11 @@ export interface FileRoutesById {
   '/resources': typeof ResourcesRouteWithChildren
   '/industries/$slug': typeof IndustriesSlugRoute
   '/products/$slug': typeof ProductsSlugRoute
+  '/products/automation-accessories': typeof ProductsAutomationAccessoriesRoute
   '/products/compare': typeof ProductsCompareRoute
+  '/products/downloads': typeof ProductsDownloadsRoute
   '/products/selector': typeof ProductsSelectorRoute
+  '/products/valve-families': typeof ProductsValveFamiliesRoute
   '/about/': typeof AboutIndexRoute
   '/industries/': typeof IndustriesIndexRoute
   '/products/': typeof ProductsIndexRoute
@@ -163,6 +200,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/ask-the-experts'
     | '/contact'
     | '/engineering-advantage'
     | '/industries'
@@ -171,8 +209,11 @@ export interface FileRouteTypes {
     | '/resources'
     | '/industries/$slug'
     | '/products/$slug'
+    | '/products/automation-accessories'
     | '/products/compare'
+    | '/products/downloads'
     | '/products/selector'
+    | '/products/valve-families'
     | '/about/'
     | '/industries/'
     | '/products/'
@@ -180,13 +221,17 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/ask-the-experts'
     | '/contact'
     | '/engineering-advantage'
     | '/request-a-quote'
     | '/industries/$slug'
     | '/products/$slug'
+    | '/products/automation-accessories'
     | '/products/compare'
+    | '/products/downloads'
     | '/products/selector'
+    | '/products/valve-families'
     | '/about'
     | '/industries'
     | '/products'
@@ -195,6 +240,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/about'
+    | '/ask-the-experts'
     | '/contact'
     | '/engineering-advantage'
     | '/industries'
@@ -203,8 +249,11 @@ export interface FileRouteTypes {
     | '/resources'
     | '/industries/$slug'
     | '/products/$slug'
+    | '/products/automation-accessories'
     | '/products/compare'
+    | '/products/downloads'
     | '/products/selector'
+    | '/products/valve-families'
     | '/about/'
     | '/industries/'
     | '/products/'
@@ -214,6 +263,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRouteWithChildren
+  AskTheExpertsRoute: typeof AskTheExpertsRoute
   ContactRoute: typeof ContactRoute
   EngineeringAdvantageRoute: typeof EngineeringAdvantageRoute
   IndustriesRoute: typeof IndustriesRouteWithChildren
@@ -266,6 +316,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/ask-the-experts': {
+      id: '/ask-the-experts'
+      path: '/ask-the-experts'
+      fullPath: '/ask-the-experts'
+      preLoaderRoute: typeof AskTheExpertsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/about': {
       id: '/about'
       path: '/about'
@@ -308,6 +365,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutIndexRouteImport
       parentRoute: typeof AboutRoute
     }
+    '/products/valve-families': {
+      id: '/products/valve-families'
+      path: '/valve-families'
+      fullPath: '/products/valve-families'
+      preLoaderRoute: typeof ProductsValveFamiliesRouteImport
+      parentRoute: typeof ProductsRoute
+    }
     '/products/selector': {
       id: '/products/selector'
       path: '/selector'
@@ -315,11 +379,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProductsSelectorRouteImport
       parentRoute: typeof ProductsRoute
     }
+    '/products/downloads': {
+      id: '/products/downloads'
+      path: '/downloads'
+      fullPath: '/products/downloads'
+      preLoaderRoute: typeof ProductsDownloadsRouteImport
+      parentRoute: typeof ProductsRoute
+    }
     '/products/compare': {
       id: '/products/compare'
       path: '/compare'
       fullPath: '/products/compare'
       preLoaderRoute: typeof ProductsCompareRouteImport
+      parentRoute: typeof ProductsRoute
+    }
+    '/products/automation-accessories': {
+      id: '/products/automation-accessories'
+      path: '/automation-accessories'
+      fullPath: '/products/automation-accessories'
+      preLoaderRoute: typeof ProductsAutomationAccessoriesRouteImport
       parentRoute: typeof ProductsRoute
     }
     '/products/$slug': {
@@ -365,15 +443,21 @@ const IndustriesRouteWithChildren = IndustriesRoute._addFileChildren(
 
 interface ProductsRouteChildren {
   ProductsSlugRoute: typeof ProductsSlugRoute
+  ProductsAutomationAccessoriesRoute: typeof ProductsAutomationAccessoriesRoute
   ProductsCompareRoute: typeof ProductsCompareRoute
+  ProductsDownloadsRoute: typeof ProductsDownloadsRoute
   ProductsSelectorRoute: typeof ProductsSelectorRoute
+  ProductsValveFamiliesRoute: typeof ProductsValveFamiliesRoute
   ProductsIndexRoute: typeof ProductsIndexRoute
 }
 
 const ProductsRouteChildren: ProductsRouteChildren = {
   ProductsSlugRoute: ProductsSlugRoute,
+  ProductsAutomationAccessoriesRoute: ProductsAutomationAccessoriesRoute,
   ProductsCompareRoute: ProductsCompareRoute,
+  ProductsDownloadsRoute: ProductsDownloadsRoute,
   ProductsSelectorRoute: ProductsSelectorRoute,
+  ProductsValveFamiliesRoute: ProductsValveFamiliesRoute,
   ProductsIndexRoute: ProductsIndexRoute,
 }
 
@@ -396,6 +480,7 @@ const ResourcesRouteWithChildren = ResourcesRoute._addFileChildren(
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRouteWithChildren,
+  AskTheExpertsRoute: AskTheExpertsRoute,
   ContactRoute: ContactRoute,
   EngineeringAdvantageRoute: EngineeringAdvantageRoute,
   IndustriesRoute: IndustriesRouteWithChildren,
