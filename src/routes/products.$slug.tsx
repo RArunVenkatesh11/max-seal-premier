@@ -6,6 +6,7 @@ import { CtaButton } from "@/components/site/CtaButton";
 import { CtaBand } from "@/components/site/CtaBand";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { useCompare } from "@/hooks/use-compare";
+import { Media, productImage } from "@/components/site/Media";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/products/$slug")({
