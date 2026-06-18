@@ -21,12 +21,48 @@ export function ProductCard({
   return (
     <article
       className={cn(
-        "group relative flex flex-col border bg-card transition",
+        "group relative flex h-full flex-col border bg-card transition",
         selected
           ? "border-brand shadow-elevated"
           : "border-border hover:border-foreground/60",
       )}
     >
+      <Link
+        to="/products/$slug"
+        params={{ slug: product.slug }}
+        className="block overflow-hidden"
+        aria-label={product.name}
+      >
+        <CardMedia
+          src={productImage(product)}
+          alt={`${product.name} butterfly valve`}
+          label={product.shortName}
+          imgClassName="group-hover:scale-[1.03]"
+        />
+      </Link>
+      <div className="grid grid-cols-[minmax(0,1fr)_auto] items-start gap-4 p-6 pb-4 sm:p-7 sm:pb-5">
+        <div className="min-w-0">
+          <div className="eyebrow">{product.shortName}</div>
+          <h3 className="mt-3 font-display text-2xl leading-tight text-foreground">
+            <Link
+              to="/products/$slug"
+              params={{ slug: product.slug }}
+              className="hover:text-brand"
+            >
+              {product.name}
+            </Link>
+          </h3>
+          <p className="mt-2 text-sm text-muted-foreground">{product.tagline}</p>
+        </div>
+        <Link
+          to="/products/$slug"
+          params={{ slug: product.slug }}
+          aria-label={`Open ${product.name}`}
+          className="grid h-9 w-9 shrink-0 place-items-center rounded-sm border border-border text-muted-foreground transition hover:border-foreground hover:text-foreground"
+        >
+          <ArrowUpRight className="h-4 w-4" />
+        </Link>
+      </div>
       <div className="grid grid-cols-[minmax(0,1fr)_auto] items-start gap-4 p-6 pb-4 sm:p-7 sm:pb-5">
         <div className="min-w-0">
           <div className="eyebrow">{product.shortName}</div>
