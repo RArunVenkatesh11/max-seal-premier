@@ -37,7 +37,21 @@ function IndustryDetail() {
 
   return (
     <>
-      <section className="cinematic relative overflow-hidden">
+      <section className="cinematic relative isolate overflow-hidden">
+        <img
+          src={industryImage(industry.slug)}
+          alt=""
+          aria-hidden
+          loading="eager"
+          className="absolute inset-0 -z-10 h-full w-full object-cover opacity-50"
+        />
+        <div
+          className="absolute inset-0 -z-10"
+          style={{
+            background:
+              "linear-gradient(100deg, oklch(0.13 0.005 60 / 0.92) 0%, oklch(0.13 0.005 60 / 0.65) 60%, oklch(0.13 0.005 60 / 0.35) 100%)",
+          }}
+        />
         <div className="grid-precision absolute inset-0 opacity-50" />
         <div className="container-page relative py-16 md:py-24">
           <Breadcrumbs
@@ -61,6 +75,7 @@ function IndustryDetail() {
           </div>
         </div>
       </section>
+
 
       <section className="bg-background py-16 md:py-20">
         <div className="container-page grid gap-14 lg:grid-cols-[1.3fr_1fr]">
