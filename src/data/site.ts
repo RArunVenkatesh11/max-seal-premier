@@ -1227,12 +1227,11 @@ export const SELECTOR: {
   industries: INDUSTRIES.map((i) => ({ value: i.slug, label: i.name })),
   media: MEDIA_TYPES,
   priorities: [
-    { value: "shutoff", label: "Tight shutoff" },
-    { value: "longevity", label: "Service life and low maintenance" },
-    { value: "emissions", label: "Fugitive emission control" },
-    { value: "temperature", label: "Temperature extremes" },
+    { value: "zero-leak", label: "Tight zero-leakage shutoff" },
+    { value: "low-emission", label: "Fugitive emission control" },
+    { value: "high-pressure", label: "High pressure or temperature" },
     { value: "corrosion", label: "Corrosion resistance" },
-    { value: "cost", label: "Best value for general service" },
+    { value: "low-cost", label: "Best value for general service" },
   ],
   valveTypes: [
     { value: "open", label: "Open to recommendation" },
