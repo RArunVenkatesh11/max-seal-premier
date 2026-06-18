@@ -17,6 +17,7 @@ import {
   ScrollToTopButton,
   ScrollToTopOnRouteChange,
 } from "@/components/site/ScrollToTop";
+import { CompareBar } from "@/components/site/CompareBar";
 
 function NotFoundComponent() {
   return (
@@ -138,6 +139,7 @@ function RootComponent() {
         </main>
         <Footer />
       </div>
+      <CompareBar />
       <ScrollToTopButton />
     </QueryClientProvider>
   );
