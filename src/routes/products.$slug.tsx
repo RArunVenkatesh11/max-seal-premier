@@ -67,7 +67,7 @@ function ProductDetail() {
             <div className="mt-14">
               <h2 className="text-2xl">Engineering highlights</h2>
               <ul className="mt-6 grid gap-4 sm:grid-cols-2">
-                {product.highlights.map((h) => (
+                {product.highlights.map((h: string) => (
                   <li key={h} className="flex gap-3 border-l-2 border-brand pl-4 text-sm text-foreground">
                     <Check className="mt-0.5 h-4 w-4 shrink-0 text-brand" />
                     <span>{h}</span>
@@ -79,7 +79,7 @@ function ProductDetail() {
             <div className="mt-14">
               <h2 className="text-2xl">Typical applications</h2>
               <div className="mt-6 flex flex-wrap gap-2">
-                {product.applications.map((a) => (
+                {product.applications.map((a: string) => (
                   <span key={a} className="rounded-sm border border-border bg-secondary px-3 py-1.5 text-sm">
                     {a}
                   </span>
@@ -102,7 +102,7 @@ function ProductDetail() {
             <div>
               <div className="eyebrow">Certifications</div>
               <ul className="mt-4 space-y-2 font-mono text-xs">
-                {product.certifications.map((c) => (
+                {product.certifications.map((c: string) => (
                   <li key={c} className="flex items-center gap-2 text-foreground">
                     <span className="h-1 w-1 rounded-full bg-brand" />
                     {c}
@@ -114,7 +114,7 @@ function ProductDetail() {
             <div>
               <div className="eyebrow">Downloads</div>
               <ul className="mt-4 space-y-2">
-                {product.downloads.map((d) => (
+                {product.downloads.map((d: { label: string; type: string; href: string }) => (
                   <li key={d.label}>
                     <a
                       href={d.href}

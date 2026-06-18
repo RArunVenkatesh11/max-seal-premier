@@ -56,7 +56,7 @@ function IndustryDetail() {
           <div>
             <div className="eyebrow">Common challenges</div>
             <ul className="mt-4 space-y-3">
-              {industry.challenges.map((c) => (
+              {industry.challenges.map((c: string) => (
                 <li key={c} className="border-l-2 border-brand pl-4 text-foreground">{c}</li>
               ))}
             </ul>
@@ -68,7 +68,7 @@ function IndustryDetail() {
         <div className="container-page">
           <div className="eyebrow">Typical applications</div>
           <div className="mt-6 grid gap-px bg-border sm:grid-cols-2 md:grid-cols-4">
-            {industry.applications.map((a) => (
+            {industry.applications.map((a: string) => (
               <div key={a} className="bg-background p-6 text-sm font-medium">{a}</div>
             ))}
           </div>
