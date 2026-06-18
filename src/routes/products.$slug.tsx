@@ -220,7 +220,7 @@ function ProductDetail() {
                 <div>
                   <div className="eyebrow">Operation options</div>
                   <ul className="mt-6 grid gap-3 sm:grid-cols-2">
-                    {product.operationTypes.map((o) => (
+                    {product.operationTypes.map((o: string) => (
                       <li
                         key={o}
                         className="border border-border bg-card p-4 font-display text-sm text-foreground"
