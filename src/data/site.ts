@@ -223,6 +223,38 @@ export const HOME_STATS: { value: string; label: string }[] = [
   { value: "100%", label: "Tested before shipment" },
 ];
 
+// Curated premium industrial imagery (Unsplash). CMS-ready image fields.
+const IMG = {
+  valveCloseup:
+    "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1800&q=80",
+  pipelineDark:
+    "https://images.unsplash.com/photo-1518709268805-4e9042af2176?auto=format&fit=crop&w=1800&q=80",
+  engineeringDrawing:
+    "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=1800&q=80",
+  manufacturing:
+    "https://images.unsplash.com/photo-1565793298595-6a879b1d9492?auto=format&fit=crop&w=1600&q=80",
+  waterPlant:
+    "https://images.unsplash.com/photo-1543393470-3e0c5d8fdbeb?auto=format&fit=crop&w=1600&q=80",
+  chemPlant:
+    "https://images.unsplash.com/photo-1605152276897-4f618f831968?auto=format&fit=crop&w=1600&q=80",
+  oilGas:
+    "https://images.unsplash.com/photo-1518616107136-3a3b3c1c1d97?auto=format&fit=crop&w=1600&q=80",
+  powerPlant:
+    "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1600&q=80",
+  foodBev:
+    "https://images.unsplash.com/photo-1561948955-570b270e7c36?auto=format&fit=crop&w=1600&q=80",
+  mining:
+    "https://images.unsplash.com/photo-1605557202138-ef113ad07e62?auto=format&fit=crop&w=1600&q=80",
+  steelTexture:
+    "https://images.unsplash.com/photo-1535813547-99c456a41d4a?auto=format&fit=crop&w=1600&q=80",
+  inspection:
+    "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1600&q=80",
+  facility:
+    "https://images.unsplash.com/photo-1531834685032-c34bf0d84c77?auto=format&fit=crop&w=1800&q=80",
+};
+
+export const HOME_IMAGES = IMG;
+
 export const HOME = {
   hero: {
     eyebrow: "Engineered Butterfly Valves / US Based",
@@ -236,6 +268,34 @@ export const HOME = {
       { label: "Use Product Selector", href: "/products/selector", variant: "ghost" as const },
       { label: "Request a Quote", href: "/request-a-quote", variant: "brand" as const },
     ],
+  },
+  carousel: [
+    {
+      eyebrow: "Engineered performance",
+      title: "Built for performance when ordinary valves are not enough.",
+      cta: { label: "Explore Solutions", href: "/products" },
+      image: IMG.valveCloseup,
+      alt: "Close-up of an engineered butterfly valve assembly in a dark industrial environment.",
+    },
+    {
+      eyebrow: "Application confidence",
+      title: "Many valve solutions. One focused partner.",
+      cta: { label: "Use Product Selector", href: "/products/selector" },
+      image: IMG.pipelineDark,
+      alt: "Industrial pipeline manifold under graphite lighting.",
+    },
+    {
+      eyebrow: "Technical support",
+      title: "Specify with confidence.",
+      cta: { label: "Ask The Experts", href: "/ask-the-experts" },
+      image: IMG.engineeringDrawing,
+      alt: "Engineering drawing and valve inspection detail.",
+    },
+  ],
+  storyImages: {
+    primary: IMG.valveCloseup,
+    secondary: IMG.engineeringDrawing,
+    alt: "Engineered valve close-up with technical drawing overlay.",
   },
   story: {
     eyebrow: "Why Max-Seal",
@@ -257,24 +317,28 @@ export const HOME = {
         body: "Pressure, temperature, media, and shutoff class guide the valve.",
         cta: "Open Product Selector",
         href: "/products/selector",
+        image: IMG.engineeringDrawing,
       },
       {
         title: "By application",
         body: "Match the valve to the line conditions and operating profile.",
         cta: "Browse Products",
         href: "/products",
+        image: IMG.pipelineDark,
       },
       {
         title: "By industry",
         body: "See how Max-Seal valves are specified across sectors.",
         cta: "View Industries",
         href: "/industries",
+        image: IMG.waterPlant,
       },
       {
         title: "By valve family",
         body: "Compare resilient seated, high performance, triple offset, and more.",
         cta: "Compare Families",
         href: "/products/compare",
+        image: IMG.valveCloseup,
       },
     ],
   },
@@ -286,21 +350,25 @@ export const HOME = {
         title: "Resilient seated solutions",
         body: "Bubble-tight shutoff for water, wastewater, HVAC, and general utility service.",
         href: "/products/resilient-seated-butterfly-valves",
+        image: IMG.waterPlant,
       },
       {
         title: "High performance and severe service",
         body: "Double and triple offset valves for process, steam, and critical isolation.",
         href: "/products/high-performance-series",
+        image: IMG.valveCloseup,
       },
       {
         title: "Lined and chemical service",
         body: "PFA and elastomer lined valves engineered for aggressive chemistry.",
         href: "/products/chem-flo-series",
+        image: IMG.chemPlant,
       },
       {
         title: "Automation and operation",
         body: "Gear operators, pneumatic and electric actuators, and accessories.",
         href: "/products/automation-accessories",
+        image: IMG.manufacturing,
       },
     ],
   },
@@ -323,36 +391,48 @@ export const HOME = {
         name: "Water and wastewater",
         challenge: "Long service life in buried and treatment plant service.",
         need: "AWWA C504 valves with NSF/ANSI 61 certified seats.",
+        image: IMG.waterPlant,
+        recommended: "Resilient seated and AWWA families",
       },
       {
         slug: "chemical-processing",
         name: "Chemical processing",
         challenge: "Aggressive media that destroys generic elastomer seats.",
         need: "PFA lined and high performance valves matched to chemistry.",
+        image: IMG.chemPlant,
+        recommended: "Lined and chemical service families",
       },
       {
         slug: "oil-and-gas",
         name: "Oil and gas",
         challenge: "Tight shutoff at higher pressure and temperature.",
         need: "High performance and triple offset valves with fire safe build.",
+        image: IMG.oilGas,
+        recommended: "High performance and triple offset",
       },
       {
         slug: "power",
         name: "Power",
         challenge: "Steam, condensate, and cooling water service.",
         need: "Metal seated and high performance valves rated for cycling.",
+        image: IMG.powerPlant,
+        recommended: "Metal seated high performance",
       },
       {
         slug: "food-and-beverage",
         name: "Food and beverage",
         challenge: "Clean utility lines with reliable isolation.",
         need: "Resilient seated valves with appropriate elastomer selection.",
+        image: IMG.foodBev,
+        recommended: "Resilient seated with selected elastomers",
       },
       {
         slug: "mining",
         name: "Mining",
         challenge: "Slurry, abrasion, and heavy duty cycling.",
         need: "Heavy wall resilient seated and lined valves for slurry service.",
+        image: IMG.mining,
+        recommended: "Heavy wall resilient seated and lined",
       },
     ],
   },
