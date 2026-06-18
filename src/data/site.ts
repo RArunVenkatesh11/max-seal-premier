@@ -1198,3 +1198,59 @@ export const FAQS: Faq[] = [
     a: "Most face-to-face dimensions match industry standards. Send a tag list and we will confirm fit and recommend equivalents.",
   },
 ];
+
+// =====================================================================
+// ENGINEERING PILLARS
+// =====================================================================
+
+export const ENGINEERING_PILLARS: { title: string; body: string }[] = [
+  { title: "Material science first", body: "Body, trim, and seat are selected from service history. We design against the line, not a catalogue page." },
+  { title: "Geometry that lasts", body: "Concentric, double, and triple offset platforms matched to the duty. Less wear, longer seat life." },
+  { title: "Sealing systems", body: "From elastomer to laminated metal-graphite seats. Bidirectional bubble tight or zero leakage to ISO 5208 Rate A." },
+  { title: "Fire-safe and emissions", body: "API 607 fire-safe construction and ISO 15848 fugitive emission packing on demand." },
+  { title: "Cryogenic engineering", body: "Extended bonnets tested to BS 6364 for LNG and industrial gas service." },
+  { title: "Tested, documented, supported", body: "Every valve hydrotested, seat tested, and shipped with traceable paperwork. US engineers on call." },
+];
+
+// =====================================================================
+// SELECTOR DATA
+// =====================================================================
+
+export const SELECTOR: {
+  industries: { value: string; label: string }[];
+  media: string[];
+  priorities: { value: string; label: string }[];
+  valveTypes: { value: string; label: string }[];
+  operations: OperationType[];
+  support: { value: string; label: string }[];
+} = {
+  industries: INDUSTRIES.map((i) => ({ value: i.slug, label: i.name })),
+  media: MEDIA_TYPES,
+  priorities: [
+    { value: "shutoff", label: "Tight shutoff" },
+    { value: "longevity", label: "Service life and low maintenance" },
+    { value: "emissions", label: "Fugitive emission control" },
+    { value: "temperature", label: "Temperature extremes" },
+    { value: "corrosion", label: "Corrosion resistance" },
+    { value: "cost", label: "Best value for general service" },
+  ],
+  valveTypes: [
+    { value: "open", label: "Open to recommendation" },
+    { value: "resilient-seated", label: "Resilient seated" },
+    { value: "high-performance", label: "High performance" },
+    { value: "triple-offset", label: "Triple offset" },
+    { value: "pfa-lined", label: "PFA lined" },
+    { value: "cryogenic", label: "Cryogenic" },
+    { value: "awwa", label: "AWWA" },
+  ],
+  operations: ["Manual lever", "Gear operator", "Pneumatic", "Electric"],
+  support: [
+    { value: "engineer", label: "Yes, have an engineer call me" },
+    { value: "quote", label: "Send a written quote first" },
+    { value: "browse", label: "Just give me the recommendation" },
+  ],
+};
+
+// Back-compat: legacy SITE.nav reference used by older Header.
+// Kept as a simple flat list. Replaced by NAV mega-menu structure.
+(SITE as unknown as { nav: { label: string; href: string }[] }).nav = NAV.map((n) => ({ label: n.label, href: n.href }));
