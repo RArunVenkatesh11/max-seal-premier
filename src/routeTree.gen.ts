@@ -18,6 +18,7 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProductsIndexRouteImport } from './routes/products.index'
+import { Route as IndustriesIndexRouteImport } from './routes/industries.index'
 import { Route as ProductsSelectorRouteImport } from './routes/products.selector'
 import { Route as ProductsCompareRouteImport } from './routes/products.compare'
 import { Route as ProductsSlugRouteImport } from './routes/products.$slug'
@@ -68,6 +69,11 @@ const ProductsIndexRoute = ProductsIndexRouteImport.update({
   path: '/',
   getParentRoute: () => ProductsRoute,
 } as any)
+const IndustriesIndexRoute = IndustriesIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => IndustriesRoute,
+} as any)
 const ProductsSelectorRoute = ProductsSelectorRouteImport.update({
   id: '/selector',
   path: '/selector',
@@ -102,6 +108,7 @@ export interface FileRoutesByFullPath {
   '/products/$slug': typeof ProductsSlugRoute
   '/products/compare': typeof ProductsCompareRoute
   '/products/selector': typeof ProductsSelectorRoute
+  '/industries/': typeof IndustriesIndexRoute
   '/products/': typeof ProductsIndexRoute
 }
 export interface FileRoutesByTo {
@@ -109,13 +116,13 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/engineering-advantage': typeof EngineeringAdvantageRoute
-  '/industries': typeof IndustriesRouteWithChildren
   '/request-a-quote': typeof RequestAQuoteRoute
   '/resources': typeof ResourcesRoute
   '/industries/$slug': typeof IndustriesSlugRoute
   '/products/$slug': typeof ProductsSlugRoute
   '/products/compare': typeof ProductsCompareRoute
   '/products/selector': typeof ProductsSelectorRoute
+  '/industries': typeof IndustriesIndexRoute
   '/products': typeof ProductsIndexRoute
 }
 export interface FileRoutesById {
@@ -132,6 +139,7 @@ export interface FileRoutesById {
   '/products/$slug': typeof ProductsSlugRoute
   '/products/compare': typeof ProductsCompareRoute
   '/products/selector': typeof ProductsSelectorRoute
+  '/industries/': typeof IndustriesIndexRoute
   '/products/': typeof ProductsIndexRoute
 }
 export interface FileRouteTypes {
@@ -149,6 +157,7 @@ export interface FileRouteTypes {
     | '/products/$slug'
     | '/products/compare'
     | '/products/selector'
+    | '/industries/'
     | '/products/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -156,13 +165,13 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/engineering-advantage'
-    | '/industries'
     | '/request-a-quote'
     | '/resources'
     | '/industries/$slug'
     | '/products/$slug'
     | '/products/compare'
     | '/products/selector'
+    | '/industries'
     | '/products'
   id:
     | '__root__'
@@ -178,6 +187,7 @@ export interface FileRouteTypes {
     | '/products/$slug'
     | '/products/compare'
     | '/products/selector'
+    | '/industries/'
     | '/products/'
   fileRoutesById: FileRoutesById
 }
@@ -257,6 +267,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProductsIndexRouteImport
       parentRoute: typeof ProductsRoute
     }
+    '/industries/': {
+      id: '/industries/'
+      path: '/'
+      fullPath: '/industries/'
+      preLoaderRoute: typeof IndustriesIndexRouteImport
+      parentRoute: typeof IndustriesRoute
+    }
     '/products/selector': {
       id: '/products/selector'
       path: '/selector'
@@ -290,10 +307,12 @@ declare module '@tanstack/react-router' {
 
 interface IndustriesRouteChildren {
   IndustriesSlugRoute: typeof IndustriesSlugRoute
+  IndustriesIndexRoute: typeof IndustriesIndexRoute
 }
 
 const IndustriesRouteChildren: IndustriesRouteChildren = {
   IndustriesSlugRoute: IndustriesSlugRoute,
+  IndustriesIndexRoute: IndustriesIndexRoute,
 }
 
 const IndustriesRouteWithChildren = IndustriesRoute._addFileChildren(
