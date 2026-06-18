@@ -223,6 +223,38 @@ export const HOME_STATS: { value: string; label: string }[] = [
   { value: "100%", label: "Tested before shipment" },
 ];
 
+// Curated premium industrial imagery (Unsplash). CMS-ready image fields.
+const IMG = {
+  valveCloseup:
+    "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1800&q=80",
+  pipelineDark:
+    "https://images.unsplash.com/photo-1518709268805-4e9042af2176?auto=format&fit=crop&w=1800&q=80",
+  engineeringDrawing:
+    "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=1800&q=80",
+  manufacturing:
+    "https://images.unsplash.com/photo-1565793298595-6a879b1d9492?auto=format&fit=crop&w=1600&q=80",
+  waterPlant:
+    "https://images.unsplash.com/photo-1543393470-3e0c5d8fdbeb?auto=format&fit=crop&w=1600&q=80",
+  chemPlant:
+    "https://images.unsplash.com/photo-1605152276897-4f618f831968?auto=format&fit=crop&w=1600&q=80",
+  oilGas:
+    "https://images.unsplash.com/photo-1518616107136-3a3b3c1c1d97?auto=format&fit=crop&w=1600&q=80",
+  powerPlant:
+    "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1600&q=80",
+  foodBev:
+    "https://images.unsplash.com/photo-1561948955-570b270e7c36?auto=format&fit=crop&w=1600&q=80",
+  mining:
+    "https://images.unsplash.com/photo-1605557202138-ef113ad07e62?auto=format&fit=crop&w=1600&q=80",
+  steelTexture:
+    "https://images.unsplash.com/photo-1535813547-99c456a41d4a?auto=format&fit=crop&w=1600&q=80",
+  inspection:
+    "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1600&q=80",
+  facility:
+    "https://images.unsplash.com/photo-1531834685032-c34bf0d84c77?auto=format&fit=crop&w=1800&q=80",
+};
+
+export const HOME_IMAGES = IMG;
+
 export const HOME = {
   hero: {
     eyebrow: "Engineered Butterfly Valves / US Based",
@@ -236,6 +268,34 @@ export const HOME = {
       { label: "Use Product Selector", href: "/products/selector", variant: "ghost" as const },
       { label: "Request a Quote", href: "/request-a-quote", variant: "brand" as const },
     ],
+  },
+  carousel: [
+    {
+      eyebrow: "Engineered performance",
+      title: "Built for performance when ordinary valves are not enough.",
+      cta: { label: "Explore Solutions", href: "/products" },
+      image: IMG.valveCloseup,
+      alt: "Close-up of an engineered butterfly valve assembly in a dark industrial environment.",
+    },
+    {
+      eyebrow: "Application confidence",
+      title: "Many valve solutions. One focused partner.",
+      cta: { label: "Use Product Selector", href: "/products/selector" },
+      image: IMG.pipelineDark,
+      alt: "Industrial pipeline manifold under graphite lighting.",
+    },
+    {
+      eyebrow: "Technical support",
+      title: "Specify with confidence.",
+      cta: { label: "Ask The Experts", href: "/ask-the-experts" },
+      image: IMG.engineeringDrawing,
+      alt: "Engineering drawing and valve inspection detail.",
+    },
+  ],
+  storyImages: {
+    primary: IMG.valveCloseup,
+    secondary: IMG.engineeringDrawing,
+    alt: "Engineered valve close-up with technical drawing overlay.",
   },
   story: {
     eyebrow: "Why Max-Seal",
