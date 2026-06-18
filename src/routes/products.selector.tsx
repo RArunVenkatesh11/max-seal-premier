@@ -4,7 +4,6 @@ import { ArrowLeft, ArrowRight, Check } from "lucide-react";
 import {
   PRODUCT_FAMILIES,
   SELECTOR,
-  type ValveType,
 } from "@/data/site";
 import { PageHero } from "@/components/site/Section";
 import { cn } from "@/lib/utils";

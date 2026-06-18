@@ -17,6 +17,7 @@ import { Route as EngineeringAdvantageRouteImport } from './routes/engineering-a
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ProductsIndexRouteImport } from './routes/products.index'
 import { Route as ProductsSelectorRouteImport } from './routes/products.selector'
 import { Route as ProductsCompareRouteImport } from './routes/products.compare'
 import { Route as ProductsSlugRouteImport } from './routes/products.$slug'
@@ -62,6 +63,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProductsIndexRoute = ProductsIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ProductsRoute,
+} as any)
 const ProductsSelectorRoute = ProductsSelectorRouteImport.update({
   id: '/selector',
   path: '/selector',
@@ -96,6 +102,7 @@ export interface FileRoutesByFullPath {
   '/products/$slug': typeof ProductsSlugRoute
   '/products/compare': typeof ProductsCompareRoute
   '/products/selector': typeof ProductsSelectorRoute
+  '/products/': typeof ProductsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -103,13 +110,13 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/engineering-advantage': typeof EngineeringAdvantageRoute
   '/industries': typeof IndustriesRouteWithChildren
-  '/products': typeof ProductsRouteWithChildren
   '/request-a-quote': typeof RequestAQuoteRoute
   '/resources': typeof ResourcesRoute
   '/industries/$slug': typeof IndustriesSlugRoute
   '/products/$slug': typeof ProductsSlugRoute
   '/products/compare': typeof ProductsCompareRoute
   '/products/selector': typeof ProductsSelectorRoute
+  '/products': typeof ProductsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -125,6 +132,7 @@ export interface FileRoutesById {
   '/products/$slug': typeof ProductsSlugRoute
   '/products/compare': typeof ProductsCompareRoute
   '/products/selector': typeof ProductsSelectorRoute
+  '/products/': typeof ProductsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -141,6 +149,7 @@ export interface FileRouteTypes {
     | '/products/$slug'
     | '/products/compare'
     | '/products/selector'
+    | '/products/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -148,13 +157,13 @@ export interface FileRouteTypes {
     | '/contact'
     | '/engineering-advantage'
     | '/industries'
-    | '/products'
     | '/request-a-quote'
     | '/resources'
     | '/industries/$slug'
     | '/products/$slug'
     | '/products/compare'
     | '/products/selector'
+    | '/products'
   id:
     | '__root__'
     | '/'
@@ -169,6 +178,7 @@ export interface FileRouteTypes {
     | '/products/$slug'
     | '/products/compare'
     | '/products/selector'
+    | '/products/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -240,6 +250,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/products/': {
+      id: '/products/'
+      path: '/'
+      fullPath: '/products/'
+      preLoaderRoute: typeof ProductsIndexRouteImport
+      parentRoute: typeof ProductsRoute
+    }
     '/products/selector': {
       id: '/products/selector'
       path: '/selector'
@@ -287,12 +304,14 @@ interface ProductsRouteChildren {
   ProductsSlugRoute: typeof ProductsSlugRoute
   ProductsCompareRoute: typeof ProductsCompareRoute
   ProductsSelectorRoute: typeof ProductsSelectorRoute
+  ProductsIndexRoute: typeof ProductsIndexRoute
 }
 
 const ProductsRouteChildren: ProductsRouteChildren = {
   ProductsSlugRoute: ProductsSlugRoute,
   ProductsCompareRoute: ProductsCompareRoute,
   ProductsSelectorRoute: ProductsSelectorRoute,
+  ProductsIndexRoute: ProductsIndexRoute,
 }
 
 const ProductsRouteWithChildren = ProductsRoute._addFileChildren(
