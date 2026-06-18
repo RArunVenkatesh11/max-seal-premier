@@ -6,6 +6,7 @@ import { ProductCard } from "@/components/site/ProductCard";
 import { CtaButton } from "@/components/site/CtaButton";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { useCompare } from "@/hooks/use-compare";
+import { industryImage } from "@/components/site/Media";
 
 export const Route = createFileRoute("/industries/$slug")({
   loader: ({ params }) => {
