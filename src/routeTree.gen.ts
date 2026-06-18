@@ -22,6 +22,12 @@ import { Route as ResourcesIndexRouteImport } from './routes/resources.index'
 import { Route as ProductsIndexRouteImport } from './routes/products.index'
 import { Route as IndustriesIndexRouteImport } from './routes/industries.index'
 import { Route as AboutIndexRouteImport } from './routes/about.index'
+import { Route as ResourcesTermsRouteImport } from './routes/resources.terms'
+import { Route as ResourcesTechnicalBulletinsRouteImport } from './routes/resources.technical-bulletins'
+import { Route as ResourcesSeatSelectionGuidesRouteImport } from './routes/resources.seat-selection-guides'
+import { Route as ResourcesInstallationMaintenanceRouteImport } from './routes/resources.installation-maintenance'
+import { Route as ResourcesCatalogsRouteImport } from './routes/resources.catalogs'
+import { Route as ResourcesActuatorSelectionRouteImport } from './routes/resources.actuator-selection'
 import { Route as ProductsValveFamiliesRouteImport } from './routes/products.valve-families'
 import { Route as ProductsSelectorRouteImport } from './routes/products.selector'
 import { Route as ProductsDownloadsRouteImport } from './routes/products.downloads'
@@ -29,6 +35,9 @@ import { Route as ProductsCompareRouteImport } from './routes/products.compare'
 import { Route as ProductsAutomationAccessoriesRouteImport } from './routes/products.automation-accessories'
 import { Route as ProductsSlugRouteImport } from './routes/products.$slug'
 import { Route as IndustriesSlugRouteImport } from './routes/industries.$slug'
+import { Route as AboutTeamRouteImport } from './routes/about.team'
+import { Route as AboutGlobalPartnersRouteImport } from './routes/about.global-partners'
+import { Route as AboutEndUsersRouteImport } from './routes/about.end-users'
 
 const ResourcesRoute = ResourcesRouteImport.update({
   id: '/resources',
@@ -95,6 +104,40 @@ const AboutIndexRoute = AboutIndexRouteImport.update({
   path: '/',
   getParentRoute: () => AboutRoute,
 } as any)
+const ResourcesTermsRoute = ResourcesTermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => ResourcesRoute,
+} as any)
+const ResourcesTechnicalBulletinsRoute =
+  ResourcesTechnicalBulletinsRouteImport.update({
+    id: '/technical-bulletins',
+    path: '/technical-bulletins',
+    getParentRoute: () => ResourcesRoute,
+  } as any)
+const ResourcesSeatSelectionGuidesRoute =
+  ResourcesSeatSelectionGuidesRouteImport.update({
+    id: '/seat-selection-guides',
+    path: '/seat-selection-guides',
+    getParentRoute: () => ResourcesRoute,
+  } as any)
+const ResourcesInstallationMaintenanceRoute =
+  ResourcesInstallationMaintenanceRouteImport.update({
+    id: '/installation-maintenance',
+    path: '/installation-maintenance',
+    getParentRoute: () => ResourcesRoute,
+  } as any)
+const ResourcesCatalogsRoute = ResourcesCatalogsRouteImport.update({
+  id: '/catalogs',
+  path: '/catalogs',
+  getParentRoute: () => ResourcesRoute,
+} as any)
+const ResourcesActuatorSelectionRoute =
+  ResourcesActuatorSelectionRouteImport.update({
+    id: '/actuator-selection',
+    path: '/actuator-selection',
+    getParentRoute: () => ResourcesRoute,
+  } as any)
 const ProductsValveFamiliesRoute = ProductsValveFamiliesRouteImport.update({
   id: '/valve-families',
   path: '/valve-families',
@@ -131,6 +174,21 @@ const IndustriesSlugRoute = IndustriesSlugRouteImport.update({
   path: '/$slug',
   getParentRoute: () => IndustriesRoute,
 } as any)
+const AboutTeamRoute = AboutTeamRouteImport.update({
+  id: '/team',
+  path: '/team',
+  getParentRoute: () => AboutRoute,
+} as any)
+const AboutGlobalPartnersRoute = AboutGlobalPartnersRouteImport.update({
+  id: '/global-partners',
+  path: '/global-partners',
+  getParentRoute: () => AboutRoute,
+} as any)
+const AboutEndUsersRoute = AboutEndUsersRouteImport.update({
+  id: '/end-users',
+  path: '/end-users',
+  getParentRoute: () => AboutRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -142,6 +200,9 @@ export interface FileRoutesByFullPath {
   '/products': typeof ProductsRouteWithChildren
   '/request-a-quote': typeof RequestAQuoteRoute
   '/resources': typeof ResourcesRouteWithChildren
+  '/about/end-users': typeof AboutEndUsersRoute
+  '/about/global-partners': typeof AboutGlobalPartnersRoute
+  '/about/team': typeof AboutTeamRoute
   '/industries/$slug': typeof IndustriesSlugRoute
   '/products/$slug': typeof ProductsSlugRoute
   '/products/automation-accessories': typeof ProductsAutomationAccessoriesRoute
@@ -149,6 +210,12 @@ export interface FileRoutesByFullPath {
   '/products/downloads': typeof ProductsDownloadsRoute
   '/products/selector': typeof ProductsSelectorRoute
   '/products/valve-families': typeof ProductsValveFamiliesRoute
+  '/resources/actuator-selection': typeof ResourcesActuatorSelectionRoute
+  '/resources/catalogs': typeof ResourcesCatalogsRoute
+  '/resources/installation-maintenance': typeof ResourcesInstallationMaintenanceRoute
+  '/resources/seat-selection-guides': typeof ResourcesSeatSelectionGuidesRoute
+  '/resources/technical-bulletins': typeof ResourcesTechnicalBulletinsRoute
+  '/resources/terms': typeof ResourcesTermsRoute
   '/about/': typeof AboutIndexRoute
   '/industries/': typeof IndustriesIndexRoute
   '/products/': typeof ProductsIndexRoute
@@ -160,6 +227,9 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/engineering-advantage': typeof EngineeringAdvantageRoute
   '/request-a-quote': typeof RequestAQuoteRoute
+  '/about/end-users': typeof AboutEndUsersRoute
+  '/about/global-partners': typeof AboutGlobalPartnersRoute
+  '/about/team': typeof AboutTeamRoute
   '/industries/$slug': typeof IndustriesSlugRoute
   '/products/$slug': typeof ProductsSlugRoute
   '/products/automation-accessories': typeof ProductsAutomationAccessoriesRoute
@@ -167,6 +237,12 @@ export interface FileRoutesByTo {
   '/products/downloads': typeof ProductsDownloadsRoute
   '/products/selector': typeof ProductsSelectorRoute
   '/products/valve-families': typeof ProductsValveFamiliesRoute
+  '/resources/actuator-selection': typeof ResourcesActuatorSelectionRoute
+  '/resources/catalogs': typeof ResourcesCatalogsRoute
+  '/resources/installation-maintenance': typeof ResourcesInstallationMaintenanceRoute
+  '/resources/seat-selection-guides': typeof ResourcesSeatSelectionGuidesRoute
+  '/resources/technical-bulletins': typeof ResourcesTechnicalBulletinsRoute
+  '/resources/terms': typeof ResourcesTermsRoute
   '/about': typeof AboutIndexRoute
   '/industries': typeof IndustriesIndexRoute
   '/products': typeof ProductsIndexRoute
@@ -183,6 +259,9 @@ export interface FileRoutesById {
   '/products': typeof ProductsRouteWithChildren
   '/request-a-quote': typeof RequestAQuoteRoute
   '/resources': typeof ResourcesRouteWithChildren
+  '/about/end-users': typeof AboutEndUsersRoute
+  '/about/global-partners': typeof AboutGlobalPartnersRoute
+  '/about/team': typeof AboutTeamRoute
   '/industries/$slug': typeof IndustriesSlugRoute
   '/products/$slug': typeof ProductsSlugRoute
   '/products/automation-accessories': typeof ProductsAutomationAccessoriesRoute
@@ -190,6 +269,12 @@ export interface FileRoutesById {
   '/products/downloads': typeof ProductsDownloadsRoute
   '/products/selector': typeof ProductsSelectorRoute
   '/products/valve-families': typeof ProductsValveFamiliesRoute
+  '/resources/actuator-selection': typeof ResourcesActuatorSelectionRoute
+  '/resources/catalogs': typeof ResourcesCatalogsRoute
+  '/resources/installation-maintenance': typeof ResourcesInstallationMaintenanceRoute
+  '/resources/seat-selection-guides': typeof ResourcesSeatSelectionGuidesRoute
+  '/resources/technical-bulletins': typeof ResourcesTechnicalBulletinsRoute
+  '/resources/terms': typeof ResourcesTermsRoute
   '/about/': typeof AboutIndexRoute
   '/industries/': typeof IndustriesIndexRoute
   '/products/': typeof ProductsIndexRoute
@@ -207,6 +292,9 @@ export interface FileRouteTypes {
     | '/products'
     | '/request-a-quote'
     | '/resources'
+    | '/about/end-users'
+    | '/about/global-partners'
+    | '/about/team'
     | '/industries/$slug'
     | '/products/$slug'
     | '/products/automation-accessories'
@@ -214,6 +302,12 @@ export interface FileRouteTypes {
     | '/products/downloads'
     | '/products/selector'
     | '/products/valve-families'
+    | '/resources/actuator-selection'
+    | '/resources/catalogs'
+    | '/resources/installation-maintenance'
+    | '/resources/seat-selection-guides'
+    | '/resources/technical-bulletins'
+    | '/resources/terms'
     | '/about/'
     | '/industries/'
     | '/products/'
@@ -225,6 +319,9 @@ export interface FileRouteTypes {
     | '/contact'
     | '/engineering-advantage'
     | '/request-a-quote'
+    | '/about/end-users'
+    | '/about/global-partners'
+    | '/about/team'
     | '/industries/$slug'
     | '/products/$slug'
     | '/products/automation-accessories'
@@ -232,6 +329,12 @@ export interface FileRouteTypes {
     | '/products/downloads'
     | '/products/selector'
     | '/products/valve-families'
+    | '/resources/actuator-selection'
+    | '/resources/catalogs'
+    | '/resources/installation-maintenance'
+    | '/resources/seat-selection-guides'
+    | '/resources/technical-bulletins'
+    | '/resources/terms'
     | '/about'
     | '/industries'
     | '/products'
@@ -247,6 +350,9 @@ export interface FileRouteTypes {
     | '/products'
     | '/request-a-quote'
     | '/resources'
+    | '/about/end-users'
+    | '/about/global-partners'
+    | '/about/team'
     | '/industries/$slug'
     | '/products/$slug'
     | '/products/automation-accessories'
@@ -254,6 +360,12 @@ export interface FileRouteTypes {
     | '/products/downloads'
     | '/products/selector'
     | '/products/valve-families'
+    | '/resources/actuator-selection'
+    | '/resources/catalogs'
+    | '/resources/installation-maintenance'
+    | '/resources/seat-selection-guides'
+    | '/resources/technical-bulletins'
+    | '/resources/terms'
     | '/about/'
     | '/industries/'
     | '/products/'
@@ -365,6 +477,48 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutIndexRouteImport
       parentRoute: typeof AboutRoute
     }
+    '/resources/terms': {
+      id: '/resources/terms'
+      path: '/terms'
+      fullPath: '/resources/terms'
+      preLoaderRoute: typeof ResourcesTermsRouteImport
+      parentRoute: typeof ResourcesRoute
+    }
+    '/resources/technical-bulletins': {
+      id: '/resources/technical-bulletins'
+      path: '/technical-bulletins'
+      fullPath: '/resources/technical-bulletins'
+      preLoaderRoute: typeof ResourcesTechnicalBulletinsRouteImport
+      parentRoute: typeof ResourcesRoute
+    }
+    '/resources/seat-selection-guides': {
+      id: '/resources/seat-selection-guides'
+      path: '/seat-selection-guides'
+      fullPath: '/resources/seat-selection-guides'
+      preLoaderRoute: typeof ResourcesSeatSelectionGuidesRouteImport
+      parentRoute: typeof ResourcesRoute
+    }
+    '/resources/installation-maintenance': {
+      id: '/resources/installation-maintenance'
+      path: '/installation-maintenance'
+      fullPath: '/resources/installation-maintenance'
+      preLoaderRoute: typeof ResourcesInstallationMaintenanceRouteImport
+      parentRoute: typeof ResourcesRoute
+    }
+    '/resources/catalogs': {
+      id: '/resources/catalogs'
+      path: '/catalogs'
+      fullPath: '/resources/catalogs'
+      preLoaderRoute: typeof ResourcesCatalogsRouteImport
+      parentRoute: typeof ResourcesRoute
+    }
+    '/resources/actuator-selection': {
+      id: '/resources/actuator-selection'
+      path: '/actuator-selection'
+      fullPath: '/resources/actuator-selection'
+      preLoaderRoute: typeof ResourcesActuatorSelectionRouteImport
+      parentRoute: typeof ResourcesRoute
+    }
     '/products/valve-families': {
       id: '/products/valve-families'
       path: '/valve-families'
@@ -414,14 +568,41 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndustriesSlugRouteImport
       parentRoute: typeof IndustriesRoute
     }
+    '/about/team': {
+      id: '/about/team'
+      path: '/team'
+      fullPath: '/about/team'
+      preLoaderRoute: typeof AboutTeamRouteImport
+      parentRoute: typeof AboutRoute
+    }
+    '/about/global-partners': {
+      id: '/about/global-partners'
+      path: '/global-partners'
+      fullPath: '/about/global-partners'
+      preLoaderRoute: typeof AboutGlobalPartnersRouteImport
+      parentRoute: typeof AboutRoute
+    }
+    '/about/end-users': {
+      id: '/about/end-users'
+      path: '/end-users'
+      fullPath: '/about/end-users'
+      preLoaderRoute: typeof AboutEndUsersRouteImport
+      parentRoute: typeof AboutRoute
+    }
   }
 }
 
 interface AboutRouteChildren {
+  AboutEndUsersRoute: typeof AboutEndUsersRoute
+  AboutGlobalPartnersRoute: typeof AboutGlobalPartnersRoute
+  AboutTeamRoute: typeof AboutTeamRoute
   AboutIndexRoute: typeof AboutIndexRoute
 }
 
 const AboutRouteChildren: AboutRouteChildren = {
+  AboutEndUsersRoute: AboutEndUsersRoute,
+  AboutGlobalPartnersRoute: AboutGlobalPartnersRoute,
+  AboutTeamRoute: AboutTeamRoute,
   AboutIndexRoute: AboutIndexRoute,
 }
 
@@ -466,10 +647,22 @@ const ProductsRouteWithChildren = ProductsRoute._addFileChildren(
 )
 
 interface ResourcesRouteChildren {
+  ResourcesActuatorSelectionRoute: typeof ResourcesActuatorSelectionRoute
+  ResourcesCatalogsRoute: typeof ResourcesCatalogsRoute
+  ResourcesInstallationMaintenanceRoute: typeof ResourcesInstallationMaintenanceRoute
+  ResourcesSeatSelectionGuidesRoute: typeof ResourcesSeatSelectionGuidesRoute
+  ResourcesTechnicalBulletinsRoute: typeof ResourcesTechnicalBulletinsRoute
+  ResourcesTermsRoute: typeof ResourcesTermsRoute
   ResourcesIndexRoute: typeof ResourcesIndexRoute
 }
 
 const ResourcesRouteChildren: ResourcesRouteChildren = {
+  ResourcesActuatorSelectionRoute: ResourcesActuatorSelectionRoute,
+  ResourcesCatalogsRoute: ResourcesCatalogsRoute,
+  ResourcesInstallationMaintenanceRoute: ResourcesInstallationMaintenanceRoute,
+  ResourcesSeatSelectionGuidesRoute: ResourcesSeatSelectionGuidesRoute,
+  ResourcesTechnicalBulletinsRoute: ResourcesTechnicalBulletinsRoute,
+  ResourcesTermsRoute: ResourcesTermsRoute,
   ResourcesIndexRoute: ResourcesIndexRoute,
 }
 
