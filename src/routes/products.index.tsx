@@ -18,6 +18,7 @@ import {
   MEDIA_TYPES,
   MATERIALS,
   CERTIFICATIONS,
+  HOME_IMAGES,
   type ProductFamily,
 } from "@/data/site";
 import { PageHero } from "@/components/site/Section";
