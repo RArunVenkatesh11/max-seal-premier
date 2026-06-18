@@ -57,7 +57,7 @@ function Hero() {
               <CtaButton
                 key={c.href}
                 to={c.href}
-                variant={c.variant === "brand" ? "brand" : c.variant === "primary" ? "primary-invert" : "ghost-invert"}
+                variant={c.variant === "brand" ? "brand" : c.variant === "primary" ? "primary" : "ghost-invert"}
               >
                 {c.label}
               </CtaButton>

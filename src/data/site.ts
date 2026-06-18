@@ -216,6 +216,13 @@ export const NAV: NavItem[] = [
 // HOME
 // =====================================================================
 
+export const HOME_STATS: { value: string; label: string }[] = [
+  { value: '1/2" to 96"', label: "Size range" },
+  { value: "ANSI 150 to 2500", label: "Pressure class" },
+  { value: "-320 to 1100°F", label: "Service temperature" },
+  { value: "100%", label: "Tested before shipment" },
+];
+
 export const HOME = {
   hero: {
     eyebrow: "Engineered Butterfly Valves / US Based",
