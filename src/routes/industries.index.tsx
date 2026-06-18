@@ -1,8 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
-import { INDUSTRIES, PRODUCT_FAMILIES } from "@/data/site";
+import { INDUSTRIES, PRODUCT_FAMILIES, HOME_IMAGES } from "@/data/site";
 import { PageHero } from "@/components/site/Section";
 import { CtaBand } from "@/components/site/CtaBand";
+import { CardMedia, industryImage } from "@/components/site/Media";
 
 export const Route = createFileRoute("/industries/")({
   head: () => ({
