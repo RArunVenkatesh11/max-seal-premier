@@ -3,6 +3,7 @@ import { ArrowUpRight, ChevronDown, Check } from "lucide-react";
 import { useState } from "react";
 import type { ProductFamily } from "@/data/site";
 import { cn } from "@/lib/utils";
+import { CardMedia, productImage } from "@/components/site/Media";
 
 export function ProductCard({
   product,
@@ -20,12 +21,25 @@ export function ProductCard({
   return (
     <article
       className={cn(
-        "group relative flex flex-col border bg-card transition",
+        "group relative flex h-full flex-col border bg-card transition",
         selected
           ? "border-brand shadow-elevated"
           : "border-border hover:border-foreground/60",
       )}
     >
+      <Link
+        to="/products/$slug"
+        params={{ slug: product.slug }}
+        className="block overflow-hidden"
+        aria-label={product.name}
+      >
+        <CardMedia
+          src={productImage(product)}
+          alt={`${product.name} butterfly valve`}
+          label={product.shortName}
+          imgClassName="group-hover:scale-[1.03]"
+        />
+      </Link>
       <div className="grid grid-cols-[minmax(0,1fr)_auto] items-start gap-4 p-6 pb-4 sm:p-7 sm:pb-5">
         <div className="min-w-0">
           <div className="eyebrow">{product.shortName}</div>
@@ -49,6 +63,8 @@ export function ProductCard({
           <ArrowUpRight className="h-4 w-4" />
         </Link>
       </div>
+
+
 
       <dl className="grid grid-cols-2 gap-px border-y border-border bg-border text-xs sm:grid-cols-4">
         <Cell label="Size" value={product.sizeRange} />

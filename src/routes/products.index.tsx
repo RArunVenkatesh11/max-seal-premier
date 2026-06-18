@@ -18,6 +18,7 @@ import {
   MEDIA_TYPES,
   MATERIALS,
   CERTIFICATIONS,
+  HOME_IMAGES,
   type ProductFamily,
 } from "@/data/site";
 import { PageHero } from "@/components/site/Section";
@@ -189,7 +190,10 @@ function ProductsIndex() {
           </>
         }
         lede="Start where you are. Pick a valve type, an industry, or an application. If you are unsure, an engineer will help you scope the duty."
+        image={HOME_IMAGES.valveCloseup}
+        imageAlt="Engineered butterfly valve close-up"
       />
+
 
       {/* Intent selector */}
       <section className="border-b border-border bg-background">

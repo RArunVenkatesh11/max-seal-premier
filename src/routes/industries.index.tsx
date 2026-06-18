@@ -1,8 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
-import { INDUSTRIES, PRODUCT_FAMILIES } from "@/data/site";
+import { INDUSTRIES, PRODUCT_FAMILIES, HOME_IMAGES } from "@/data/site";
 import { PageHero } from "@/components/site/Section";
 import { CtaBand } from "@/components/site/CtaBand";
+import { CardMedia, industryImage } from "@/components/site/Media";
 
 export const Route = createFileRoute("/industries/")({
   head: () => ({
@@ -32,6 +33,8 @@ function IndustriesIndex() {
           </>
         }
         lede="From municipal water plants to LNG terminals, Max-Seal valves serve operators who measure success in years between failures, not transactions."
+        image={HOME_IMAGES.oilGas}
+        imageAlt="Industrial pipeline facility at dusk"
       />
 
       <section className="bg-background py-14 md:py-20">
@@ -43,15 +46,28 @@ function IndustriesIndex() {
             return (
               <article
                 key={i.slug}
-                className="group flex flex-col border border-border bg-card transition hover:border-foreground/60"
+                className="group flex h-full flex-col border border-border bg-card transition hover:border-foreground/60"
               >
+                <Link
+                  to="/industries/$slug"
+                  params={{ slug: i.slug }}
+                  className="block overflow-hidden"
+                  aria-label={i.name}
+                >
+                  <CardMedia
+                    src={industryImage(i.slug)}
+                    alt={`${i.name} application`}
+                    label={`${i.applications.length} applications`}
+                    imgClassName="group-hover:scale-[1.03]"
+                  />
+                </Link>
                 <Link
                   to="/industries/$slug"
                   params={{ slug: i.slug }}
                   className="block p-7"
                 >
                   <div className="flex items-start justify-between">
-                    <div className="eyebrow">{i.applications.length} applications</div>
+                    <div className="eyebrow">Industry</div>
                     <ArrowUpRight className="h-5 w-5 text-muted-foreground transition group-hover:text-foreground" />
                   </div>
                   <h3 className="mt-4 font-display text-2xl text-foreground group-hover:text-brand">
