@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHero, Section, SectionHeading } from "@/components/site/Section";
 import { CtaBand } from "@/components/site/CtaBand";
-import { HOME } from "@/data/site";
+import { HOME_STATS } from "@/data/site";
 
 export const Route = createFileRoute("/about/")({
   head: () => ({

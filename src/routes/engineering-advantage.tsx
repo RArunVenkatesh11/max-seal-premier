@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ENGINEERING_PILLARS, HOME } from "@/data/site";
+import { ENGINEERING_PILLARS, HOME_STATS } from "@/data/site";
 import { PageHero, Section, SectionHeading } from "@/components/site/Section";
 import { CtaBand } from "@/components/site/CtaBand";
 
