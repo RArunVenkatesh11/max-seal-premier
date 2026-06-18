@@ -116,6 +116,7 @@ export const SITE = {
 };
 
 export const NAV: NavItem[] = [
+  { label: "Home", href: "/" },
   {
     label: "Products",
     href: "/products",
@@ -215,60 +216,161 @@ export const NAV: NavItem[] = [
 // HOME
 // =====================================================================
 
-export const HOME: {
+export const HOME_STATS: { value: string; label: string }[] = [
+  { value: '1/2" to 96"', label: "Size range" },
+  { value: "ANSI 150 to 2500", label: "Pressure class" },
+  { value: "-320 to 1100°F", label: "Service temperature" },
+  { value: "100%", label: "Tested before shipment" },
+];
+
+export const HOME = {
   hero: {
-    eyebrow: string;
-    title: string;
-    titleAccent: string;
-    lede: string;
-    primary: Cta;
-    secondary: Cta;
-  };
-  pillars: { number: string; title: string; body: string }[];
-  stats: { value: string; label: string }[];
-  ctaBand: { title: string; body: string; cta: Cta };
-} = {
-  hero: {
-    eyebrow: "Engineered Butterfly Valves / US Manufactured",
-    title: "Not just ordinary butterfly valves.",
-    titleAccent: "Built for performance.",
+    eyebrow: "Engineered Butterfly Valves / US Based",
+    title: "Built for performance",
+    titleAccent: "when ordinary valves are not enough.",
     lede:
-      "Max-Seal is a US-based engineered valve partner. One source for resilient seated, high performance, triple offset, cryogenic, and AWWA butterfly valves. Many solutions. Zero compromise.",
-    primary: { label: "Request a Quote", href: "/request-a-quote", variant: "brand" },
-    secondary: { label: "Explore Products", href: "/products", variant: "ghost" },
+      "Max-Seal designs and supplies engineered butterfly valve solutions for demanding industrial applications, with the product range, technical support, and quality focus to help teams specify with confidence.",
+    trustLine: "US-based support. Engineered product range. Many solutions. Zero compromise.",
+    ctas: [
+      { label: "Explore Solutions", href: "/products", variant: "primary" as const },
+      { label: "Use Product Selector", href: "/products/selector", variant: "ghost" as const },
+      { label: "Request a Quote", href: "/request-a-quote", variant: "brand" as const },
+    ],
   },
-  pillars: [
-    {
-      number: "01",
-      title: "Engineered, not assembled",
-      body: "Every valve is specified, tested, and supported by engineers who understand the service.",
-    },
-    {
-      number: "02",
-      title: "One source, many solutions",
-      body: "Resilient seated, high performance, triple offset, cryogenic, and AWWA valves under one program.",
-    },
-    {
-      number: "03",
-      title: "US-based support",
-      body: "Application help, drawings, and quotes from a domestic team that answers the phone.",
-    },
-    {
-      number: "04",
-      title: "A stronger alternative",
-      body: "Built to outlast generic low-cost imports without overspecifying what you do not need.",
-    },
-  ],
-  stats: [
-    { value: '1/2" to 96"', label: "Size range" },
-    { value: "ANSI 150 to 2500", label: "Pressure class" },
-    { value: "-320 to 1100°F", label: "Service temperature" },
-    { value: "100%", label: "Tested before shipment" },
-  ],
-  ctaBand: {
-    title: "Specify with confidence.",
-    body: "Send line conditions, materials, and quantities. You will get a clear quote with the right valve, not the easiest one to ship.",
-    cta: { label: "Request a Quote", href: "/request-a-quote", variant: "brand" },
+  story: {
+    eyebrow: "Why Max-Seal",
+    title: "A stronger alternative to generic low-cost valve suppliers.",
+    body:
+      "When valve selection affects uptime, safety, and service life, teams need more than a catalogue. Max-Seal brings engineered product knowledge, application support, and a focused butterfly valve range built for real operating conditions.",
+    proofPoints: [
+      { title: "Engineered valve selection support", body: "Specify against the service, not the shelf." },
+      { title: "Broad butterfly valve range", body: "Resilient seated through triple offset and cryogenic." },
+      { title: "US-based support and distributor reach", body: "Domestic team, sales offices in the Americas." },
+    ],
+  },
+  pathways: {
+    eyebrow: "Find your starting point",
+    title: "Start with the way you specify.",
+    cards: [
+      {
+        title: "By performance need",
+        body: "Pressure, temperature, media, and shutoff class guide the valve.",
+        cta: "Open Product Selector",
+        href: "/products/selector",
+      },
+      {
+        title: "By application",
+        body: "Match the valve to the line conditions and operating profile.",
+        cta: "Browse Products",
+        href: "/products",
+      },
+      {
+        title: "By industry",
+        body: "See how Max-Seal valves are specified across sectors.",
+        cta: "View Industries",
+        href: "/industries",
+      },
+      {
+        title: "By valve family",
+        body: "Compare resilient seated, high performance, triple offset, and more.",
+        cta: "Compare Families",
+        href: "/products/compare",
+      },
+    ],
+  },
+  curatedRanges: {
+    eyebrow: "Product range",
+    title: "Engineered platforms, curated for your service.",
+    items: [
+      {
+        title: "Resilient seated solutions",
+        body: "Bubble-tight shutoff for water, wastewater, HVAC, and general utility service.",
+        href: "/products/resilient-seated-butterfly-valves",
+      },
+      {
+        title: "High performance and severe service",
+        body: "Double and triple offset valves for process, steam, and critical isolation.",
+        href: "/products/high-performance-series",
+      },
+      {
+        title: "Lined and chemical service",
+        body: "PFA and elastomer lined valves engineered for aggressive chemistry.",
+        href: "/products/chem-flo-series",
+      },
+      {
+        title: "Automation and operation",
+        body: "Gear operators, pneumatic and electric actuators, and accessories.",
+        href: "/products/automation-accessories",
+      },
+    ],
+  },
+  company: {
+    eyebrow: "Company",
+    title: "Built on valve experience. Backed by reach.",
+    timeline: [
+      { year: "2008", label: "Established", body: "Max-Seal founded as an engineered butterfly valve supplier." },
+      { year: "40+ yrs", label: "Leadership", body: "Led by President Martin Gibbons, with deep valve industry experience." },
+      { year: "US", label: "Main facilities", body: "Lumberton, North Carolina and Houston, Texas." },
+      { year: "Americas", label: "Sales offices", body: "Argentina, Chile, and Mexico, with distributors across the US." },
+    ],
+  },
+  industries: {
+    eyebrow: "Where we are specified",
+    title: "Specified across demanding operating environments.",
+    items: [
+      {
+        slug: "water-and-wastewater",
+        name: "Water and wastewater",
+        challenge: "Long service life in buried and treatment plant service.",
+        need: "AWWA C504 valves with NSF/ANSI 61 certified seats.",
+      },
+      {
+        slug: "chemical-processing",
+        name: "Chemical processing",
+        challenge: "Aggressive media that destroys generic elastomer seats.",
+        need: "PFA lined and high performance valves matched to chemistry.",
+      },
+      {
+        slug: "oil-and-gas",
+        name: "Oil and gas",
+        challenge: "Tight shutoff at higher pressure and temperature.",
+        need: "High performance and triple offset valves with fire safe build.",
+      },
+      {
+        slug: "power",
+        name: "Power",
+        challenge: "Steam, condensate, and cooling water service.",
+        need: "Metal seated and high performance valves rated for cycling.",
+      },
+      {
+        slug: "food-and-beverage",
+        name: "Food and beverage",
+        challenge: "Clean utility lines with reliable isolation.",
+        need: "Resilient seated valves with appropriate elastomer selection.",
+      },
+      {
+        slug: "mining",
+        name: "Mining",
+        challenge: "Slurry, abrasion, and heavy duty cycling.",
+        need: "Heavy wall resilient seated and lined valves for slurry service.",
+      },
+    ],
+  },
+  process: {
+    eyebrow: "Engineering confidence",
+    title: "Specification is the product.",
+    body:
+      "The valve is only one part of the decision. Materials, seat selection, pressure, temperature, media, operation, and service conditions all matter. Max-Seal helps teams move from requirement to the right solution.",
+    steps: [
+      { number: "01", title: "Understand the application", body: "Line conditions, media, and operating profile." },
+      { number: "02", title: "Match the valve family", body: "Resilient seated, high performance, triple offset, lined." },
+      { number: "03", title: "Review technical needs", body: "Materials, seat, certifications, and operation." },
+      { number: "04", title: "Support quote and supply", body: "Clear quote with the right valve, ready to ship." },
+    ],
+  },
+  finalCta: {
+    title: "Need the right valve for a demanding application?",
+    body: "Talk to a Max-Seal engineer or send your line conditions for a clear quote.",
   },
 };
 

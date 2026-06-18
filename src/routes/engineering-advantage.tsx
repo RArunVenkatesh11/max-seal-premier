@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ENGINEERING_PILLARS, HOME } from "@/data/site";
+import { ENGINEERING_PILLARS, HOME_STATS } from "@/data/site";
 import { PageHero, Section, SectionHeading } from "@/components/site/Section";
 import { CtaBand } from "@/components/site/CtaBand";
 
@@ -46,7 +46,7 @@ function EngineeringPage() {
           lede="Hydrostatic body, seat closure, and functional cycle tests. Every valve. Every order. Documentation on request."
         />
         <div className="mt-12 grid gap-px bg-line md:grid-cols-4">
-          {HOME.stats.map((s) => (
+          {HOME_STATS.map((s) => (
             <div key={s.label} className="bg-ink p-8">
               <div className="font-display text-3xl text-white">{s.value}</div>
               <div className="eyebrow mt-3 text-white/50">{s.label}</div>
