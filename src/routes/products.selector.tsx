@@ -424,5 +424,3 @@ function labelFor(value: string, kind: "industry" | "valve") {
   return value;
 }
 
-// satisfy unused parameter rule for ValveType referenced only by type
-export type _ = ValveType;

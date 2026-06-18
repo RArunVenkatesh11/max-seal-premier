@@ -73,7 +73,7 @@ function IndustryDetail() {
             <div>
               <div className="eyebrow">Common challenges</div>
               <ul className="mt-4 space-y-2.5">
-                {industry.challenges.map((c) => (
+                {industry.challenges.map((c: string) => (
                   <li
                     key={c}
                     className="border-l-2 border-brand bg-secondary/40 py-2 pl-4 text-foreground"
@@ -86,7 +86,7 @@ function IndustryDetail() {
             <div>
               <div className="eyebrow">Typical valve needs</div>
               <ul className="mt-4 space-y-2 text-sm text-foreground">
-                {industry.valveNeeds.map((v) => (
+                {industry.valveNeeds.map((v: string) => (
                   <li key={v} className="flex gap-2">
                     <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-brand" />
                     {v}
@@ -102,7 +102,7 @@ function IndustryDetail() {
         <div className="container-page">
           <div className="eyebrow">Common applications</div>
           <div className="mt-6 grid gap-px bg-border sm:grid-cols-2 md:grid-cols-4">
-            {industry.applications.map((a) => (
+            {industry.applications.map((a: string) => (
               <div
                 key={a}
                 className="bg-background p-6 font-display text-sm tracking-wide text-foreground"
@@ -148,7 +148,7 @@ function IndustryDetail() {
           <div>
             <div className="eyebrow">Technical considerations</div>
             <ul className="mt-6 space-y-3">
-              {industry.technicalConsiderations.map((t) => (
+              {industry.technicalConsiderations.map((t: string) => (
                 <li
                   key={t}
                   className="border-l-2 border-foreground/30 bg-secondary/50 py-2 pl-4 text-sm text-foreground"

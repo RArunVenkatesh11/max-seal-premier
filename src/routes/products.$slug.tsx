@@ -105,7 +105,7 @@ function ProductDetail() {
           <div className="min-w-0">
             <div className="overflow-x-auto border-b border-border">
               <div role="tablist" className="flex min-w-max gap-1">
-                {TABS.map((t) => (
+                {TABS.map((t: string) => (
                   <button
                     key={t.id}
                     role="tab"
@@ -132,7 +132,7 @@ function ProductDetail() {
                     {product.summary}
                   </p>
                   <div className="mt-10 grid gap-px bg-border sm:grid-cols-3">
-                    {product.certifications.map((c) => (
+                    {product.certifications.map((c: string) => (
                       <div key={c} className="bg-card p-5">
                         <div className="eyebrow">Certified</div>
                         <div className="mt-2 font-display text-sm text-foreground">{c}</div>
@@ -146,7 +146,7 @@ function ProductDetail() {
                 <div>
                   <div className="eyebrow">Engineering highlights</div>
                   <ul className="mt-6 grid gap-4 sm:grid-cols-2">
-                    {product.highlights.map((h) => (
+                    {product.highlights.map((h: string) => (
                       <li
                         key={h}
                         className="flex gap-3 border-l-2 border-brand bg-secondary/40 p-4 text-sm text-foreground"
@@ -160,7 +160,7 @@ function ProductDetail() {
                     <div className="mt-10">
                       <div className="eyebrow">Considerations</div>
                       <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-                        {product.considerations.map((c) => (
+                        {product.considerations.map((c: string) => (
                           <li key={c} className="flex gap-2">
                             <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-brand" />
                             {c}
@@ -176,7 +176,7 @@ function ProductDetail() {
                 <div>
                   <div className="eyebrow">Typical applications</div>
                   <div className="mt-6 flex flex-wrap gap-2">
-                    {product.applications.map((a) => (
+                    {product.applications.map((a: string) => (
                       <span
                         key={a}
                         className="rounded-sm border border-border bg-card px-3 py-1.5 text-sm"
@@ -188,7 +188,7 @@ function ProductDetail() {
                   <div className="mt-10">
                     <div className="eyebrow">Common media</div>
                     <div className="mt-3 flex flex-wrap gap-2">
-                      {product.mediaTypes.map((m) => (
+                      {product.mediaTypes.map((m: string) => (
                         <span
                           key={m}
                           className="rounded-sm bg-foreground/5 px-3 py-1.5 text-sm text-foreground"
@@ -220,7 +220,7 @@ function ProductDetail() {
                 <div>
                   <div className="eyebrow">Operation options</div>
                   <ul className="mt-6 grid gap-3 sm:grid-cols-2">
-                    {product.operationTypes.map((o) => (
+                    {product.operationTypes.map((o: string) => (
                       <li
                         key={o}
                         className="border border-border bg-card p-4 font-display text-sm text-foreground"
