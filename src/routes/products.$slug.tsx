@@ -53,7 +53,21 @@ function ProductDetail() {
 
   return (
     <>
-      <section className="cinematic relative overflow-hidden">
+      <section className="cinematic relative isolate overflow-hidden">
+        <img
+          src={productImage(product)}
+          alt=""
+          aria-hidden
+          loading="eager"
+          className="absolute inset-0 -z-10 h-full w-full object-cover opacity-45"
+        />
+        <div
+          className="absolute inset-0 -z-10"
+          style={{
+            background:
+              "linear-gradient(100deg, oklch(0.13 0.005 60 / 0.94) 0%, oklch(0.13 0.005 60 / 0.7) 55%, oklch(0.13 0.005 60 / 0.4) 100%)",
+          }}
+        />
         <div className="grid-precision absolute inset-0 opacity-50" />
         <div className="container-page relative py-16 md:py-24">
           <Breadcrumbs
@@ -63,7 +77,7 @@ function ProductDetail() {
               { label: product.shortName },
             ]}
           />
-          <div className="mt-6 grid gap-12 lg:grid-cols-[1.4fr_1fr] lg:items-end">
+          <div className="mt-6 grid gap-12 lg:grid-cols-[1.4fr_1fr] lg:items-center">
             <div>
               <div className="eyebrow text-white/55">{product.valveType.replace(/-/g, " ")}</div>
               <h1 className="mt-3 font-display text-4xl leading-[1.05] text-white md:text-6xl">
@@ -91,15 +105,27 @@ function ProductDetail() {
                 </button>
               </div>
             </div>
-            <dl className="grid grid-cols-2 gap-px border border-white/10 bg-white/5 font-display text-xs">
-              <Spec label="Size" value={product.sizeRange} />
-              <Spec label="Pressure" value={product.pressureClass} />
-              <Spec label="Temperature" value={product.temperatureRange} />
-              <Spec label="Body" value={product.bodyMaterial[0]} />
-            </dl>
+            <div className="space-y-4">
+              <Media
+                src={productImage(product)}
+                alt={`${product.name} hero`}
+                ratio="4/3"
+                overlay="none"
+                eager
+                className="border border-white/10"
+                label={product.shortName}
+              />
+              <dl className="grid grid-cols-2 gap-px border border-white/10 bg-white/5 font-display text-xs">
+                <Spec label="Size" value={product.sizeRange} />
+                <Spec label="Pressure" value={product.pressureClass} />
+                <Spec label="Temperature" value={product.temperatureRange} />
+                <Spec label="Body" value={product.bodyMaterial[0]} />
+              </dl>
+            </div>
           </div>
         </div>
       </section>
+
 
       <section className="bg-background">
         <div className="container-page grid gap-14 py-14 md:py-20 lg:grid-cols-[1fr_320px]">
