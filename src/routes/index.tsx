@@ -9,13 +9,13 @@ import { CtaBand } from "@/components/site/CtaBand";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Max-Seal — Engineered Butterfly Valves Built for Performance" },
+      { title: "Max-Seal | Engineered Butterfly Valves Built for Performance" },
       {
         name: "description",
         content:
           "Max-Seal is a US-based engineered butterfly valve manufacturer. Resilient seated, high performance, triple offset, and PFA lined solutions.",
       },
-      { property: "og:title", content: "Max-Seal — Engineered Butterfly Valves" },
+      { property: "og:title", content: "Max-Seal | Engineered Butterfly Valves" },
       {
         property: "og:description",
         content: "Not just ordinary butterfly valves. Built for performance. Many solutions. Zero compromise.",
