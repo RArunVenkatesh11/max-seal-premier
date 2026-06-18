@@ -105,7 +105,7 @@ function ProductDetail() {
           <div className="min-w-0">
             <div className="overflow-x-auto border-b border-border">
               <div role="tablist" className="flex min-w-max gap-1">
-                {TABS.map((t: string) => (
+                {TABS.map((t) => (
                   <button
                     key={t.id}
                     role="tab"
@@ -220,7 +220,7 @@ function ProductDetail() {
                 <div>
                   <div className="eyebrow">Operation options</div>
                   <ul className="mt-6 grid gap-3 sm:grid-cols-2">
-                    {product.operationTypes.map((o: string) => (
+                    {product.operationTypes.map((o) => (
                       <li
                         key={o}
                         className="border border-border bg-card p-4 font-display text-sm text-foreground"
