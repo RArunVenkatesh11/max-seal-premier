@@ -17,7 +17,7 @@ export const Route = createFileRoute("/request-a-quote")({
   component: QuotePage,
 });
 
-// Form schema — designed to map to a future CMS / lead pipeline.
+// Form schema. Designed to map to a future CMS / lead pipeline.
 const QUOTE_FIELDS = {
   contact: ["name", "company", "email", "phone"],
   project: ["industry", "family", "size", "pressure", "temperature", "quantity"],
