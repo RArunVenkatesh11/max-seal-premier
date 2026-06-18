@@ -132,7 +132,6 @@ export function ProductCard({
           )}
           <Link
             to="/request-a-quote"
-            search={{ family: product.slug }}
             className="inline-flex h-9 items-center rounded-sm bg-foreground px-3 font-display text-[0.7rem] uppercase tracking-widest text-background hover:bg-foreground/90"
           >
             Enquire
